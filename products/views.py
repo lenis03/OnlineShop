@@ -1,9 +1,15 @@
 from django.views import generic
 from django.shortcuts import get_object_or_404, reverse
-
+from django.http import HttpResponse
+from django.utils.translation import gettext as _
 
 from .models import Products, Comment
 from .forms import CommentForm
+
+
+# def test_translate(request):
+#     result = _('Hello')
+#     return HttpResponse(result)
 
 
 class ProductsListView(generic.ListView):
