@@ -1,7 +1,9 @@
 from django.views import generic
-from django.shortcuts import get_object_or_404, reverse
+from django.shortcuts import get_object_or_404, reverse, render
 from django.http import HttpResponse
 from django.utils.translation import gettext as _
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 from .models import Products, Comment
 from .forms import CommentForm
@@ -9,7 +11,8 @@ from .forms import CommentForm
 
 # def test_translate(request):
 #     result = _('Hello')
-#     return HttpResponse(result)
+#     messages.warning(request, 'Fuck you ')
+#     return render(request, 'products/test.html')
 
 
 class ProductsListView(generic.ListView):
@@ -30,9 +33,10 @@ class ProductDetailView(generic.DetailView):
         return context
 
 
-class CommentCreateView(generic.CreateView):
+class CommentCreateView(SuccessMessageMixin, generic.CreateView):
     model = Comment
     form_class = CommentForm
+    success_message = "Comment Successfully Add"
 
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -42,6 +46,6 @@ class CommentCreateView(generic.CreateView):
         obj.product = product
         return super().form_valid(form)
 
-    # def get_success_url(self):
-    #     return reverse('product_list')
+
+
 
