@@ -43,6 +43,9 @@ class Cart:
         self.session.modified = True
 
     def __iter__(self):
+        """
+        for in cart values
+        """
         product_ids = self.cart.keys()
         products = Products.objects.filter(id__in=product_ids)
 
@@ -55,13 +58,22 @@ class Cart:
             yield item
 
     def __len__(self):
+        """
+        Product count
+        """
         return len(self.cart.keys())
 
     def clear(self):
+        """
+        Clear the cart
+        """
         del self.session['cart']
         self.save()
 
     def get_total_price(self):
+        """
+        Calculation of total prices
+        """
         product_ids = self.cart.keys()
         products = Products.objects.filter(id__in=product_ids)
         return sum(product.price for product in products)
