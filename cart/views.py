@@ -1,5 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+
+from .cart import Cart
+from .forms import AddToCartProductForm
+from products.models import Products
 
 
 def cart_detail_view(request):
-    return render(request, 'cart/cart_detail.html')
+    cart = Cart(request)
+    return render(request, 'cart/cart_detail.html', {
+        'cart': cart,
+    })
+
+
+def add_to_cart_view(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Products, id=product_id)
+    form = AddToCartProductForm(request.post)
+
+    if form.is_valid():
+        cleaned_data = form.cleaned_data
+        quantity = cleaned_data['quantity']
+        cart.add(product, quantity)
+
+    return redirect('cart:cart_detail')
+

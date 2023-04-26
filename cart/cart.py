@@ -23,7 +23,7 @@ class Cart:
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': quantity}
         else:
-            self.cart[product_id][quantity] += quantity
+            self.cart[product_id]['quantity'] += quantity
 
         self.save()
 
