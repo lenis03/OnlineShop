@@ -13,7 +13,8 @@ class Cart:
 
         if not cart:
             cart = self.session['cart'] = {}
-            self.cart = cart
+
+        self.cart = cart
 
     def add(self, product, quantity=1):
         """

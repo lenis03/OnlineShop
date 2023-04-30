@@ -15,7 +15,7 @@ def cart_detail_view(request):
 def add_to_cart_view(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Products, id=product_id)
-    form = AddToCartProductForm(request.post)
+    form = AddToCartProductForm(request.POST)
 
     if form.is_valid():
         cleaned_data = form.cleaned_data
