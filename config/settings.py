@@ -91,7 +91,9 @@ TEMPLATES = [
         },
     },
 ]
-
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'templates/locale'),
+)
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
