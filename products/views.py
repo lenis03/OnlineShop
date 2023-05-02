@@ -36,7 +36,7 @@ class ProductDetailView(generic.DetailView):
 class CommentCreateView(SuccessMessageMixin, generic.CreateView):
     model = Comment
     form_class = CommentForm
-    success_message = "Comment Successfully Add"
+    success_message = _("Comment Successfully Add")
 
     def form_valid(self, form):
         obj = form.save(commit=False)
