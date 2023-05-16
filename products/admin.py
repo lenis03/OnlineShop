@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import Products, Comment
+from jalali_date.admin import ModelAdminJalaliMixin
 
 
 class CommentInline(admin.StackedInline):
@@ -10,7 +11,7 @@ class CommentInline(admin.StackedInline):
 
 
 @admin.register(Products)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     model = Products
     list_display = ['title', 'price', 'active', 'datetime_modified']
 
