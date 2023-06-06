@@ -1,9 +1,11 @@
 {% extends '_base.html' %}
+{% load humanize %}
 {% load static %}
 {% load crispy_forms_filters %}
 {% load comment_tags %}
 {% load i18n %}
 {% load jalali_tags %}
+{% load persian_translation_tags %}
 
 {% block page_title %}
     ProductDetail
@@ -146,7 +148,7 @@
                                                                          alt="Review Avatar" class="review__avatar p-3">
                                                                     <div>
                                                                         <div class="review__meta" dir="ltr">
-                                                                            <span class="review__published-date">{{ comment.datetime_create|to_jalali:'%Y/%m/%d'}}</span>
+                                                                            <span class="review__published-date">{{ comment.datetime_create|to_jalali:'%Y/%m/%d'|translate_number}}</span>
                                                                             <span class="review__dash">-</span>
                                                                             <strong class="review__author px-4">{{ comment.author }}</strong>
                                                                         </div>
