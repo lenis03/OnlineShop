@@ -4,10 +4,12 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext as _
 from django.utils import timezone
 
+from ckeditor.fields import RichTextField
+
 
 class Products(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = RichTextField()
     price = models.PositiveIntegerField()
     active = models.BooleanField(default=True)
     image = models.ImageField(verbose_name=_('Product Image'), upload_to='product/product_cover')
