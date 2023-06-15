@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'django.contrib.humanize',
     'ckeditor',
+    'phonenumber_field',
 
 
     # local apps
@@ -62,6 +63,8 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
     'persian_translate.apps.PersianTranslateConfig',
+    'orders.apps.OrdersConfig',
+
 
 
 ]
