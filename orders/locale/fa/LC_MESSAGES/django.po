@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-19 21:26+0330\n"
-"PO-Revision-Date: 2023-06-19 21:27+0330\n"
-"Last-Translator:   <fardintorkamand83@gmail.com>\n"
+"POT-Creation-Date: 2023-06-20 15:26+0330\n"
+"PO-Revision-Date: 2023-06-20 15:44+0330\n"
+"Last-Translator: Fardin Torkamand <fardintorkamand83@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,3 +72,11 @@ msgstr "ارسال"
 #: .\templates\order\order_create.html:102
 msgid "$"
 msgstr "تومان"
+
+#: .\views.py:16
+msgid "You can not proceed to checkout because your cart is empty"
+msgstr "شما نمی توانید به تسویه حساب ادامه دهید زیرا سبد خرید شما خالی است!"
+
+#: .\views.py:37
+msgid "Your order successfully placed"
+msgstr "سفارش شما با موفقیت حذف شد!"
