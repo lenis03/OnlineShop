@@ -2,6 +2,7 @@ from products.models import Products
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
+
 class Cart:
     def __init__(self, request):
         """
@@ -81,6 +82,12 @@ class Cart:
         Calculation of total prices
         """
         return sum(item['product_obj'].price * item['quantity'] for item in self.cart.values())
+
+    def is_empty(self):
+        if self.cart:
+            return False
+        else:
+            return True
 
 
 

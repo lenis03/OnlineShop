@@ -17,6 +17,7 @@ from .forms import CommentForm
 
 class ProductsListView(generic.ListView):
     # model = Products
+    paginate_by = 8
     queryset = Products.objects.filter(active=True)
     template_name = 'products/product_list.html'
     context_object_name = 'products'
