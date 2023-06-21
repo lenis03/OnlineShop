@@ -64,9 +64,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'persian_translate.apps.PersianTranslateConfig',
     'orders.apps.OrdersConfig',
-
-
-
+    'payment.apps.PaymentConfig',
 ]
 
 
@@ -211,3 +209,5 @@ ACCOUNT_UNIQUE_EMAIL = True
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+ZARINPALL_MERCHANT_ID = env('DJANGO_ZARINPAL_MERCHANT_ID')
