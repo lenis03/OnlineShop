@@ -3,6 +3,7 @@ from django.conf import settings
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext as _
 
+from cart.cart import Cart
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_('User'))
@@ -26,6 +27,13 @@ class Order(models.Model):
 
     def get_total_price(self):
         return sum(item.price * item.quantity for item in self.items.all())
+
+    def return_products_to_cart(self, request):
+        cart = Cart(request)
+        rec_cart = None
+        for item in self.items.all():
+            rec_cart = cart.add(item.product, item.quantity)
+        return rec_cart
 
 
 class OrderItem(models.Model):
