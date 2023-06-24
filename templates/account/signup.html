@@ -1,18 +1,49 @@
 {% extends '_base.html' %}
-{% load crispy_forms_filters%}
+{% load crispy_forms_filters %}
 {% block page_title %}
     SignUp
 {% endblock page_title %}
 
 {% block content %}
-
-
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="SignUp">
-</form>
-
+    <div class="main-content-wrapper">
+    <div class="page-content-inner pt--75 pb--80">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-6 mb-sm--50">
+        <div class="login-box">
+            <h4 class="heading__tertiary mb--30">ثبت نام</h4>
+            <form action="" method="post" class="form form--login">
+                {% csrf_token %}
+                {% if form.errors %}
+                    <div class='alert alert-danger'>
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+                <div class="form__group mb--20">
+                    <label class="form__label form__label--2" for="id_email">ایمیل شما <span
+                            class="required">*</span></label>
+                    <input type="email" class="form__input form__input--2" id="id_email" name="email"
+                           autocomplete="email">
+                </div>
+                <div class="form__group mb--20">
+                    <label class="form__label form__label--2" for="id_password1">رمز عبور <span
+                            class="required">*</span></label>
+                    <input type="password" class="form__input form__input--2" id="id_password1"
+                           name="password1" autocomplete="new-password">
+                </div>
+                <div class="form__group mb--20">
+                    <label class="form__label form__label--2" for="id_password2">رمز عبور(تکرار) <span
+                            class="required">*</span></label>
+                    <input type="password" class="form__input form__input--2" id="id_password2"
+                           name="password2" autocomplete="new-password2">
+                </div>
+                <div class="form__group">
+                    <input type="submit" value="ثبت نام" class="btn btn-submit btn-style-1">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6">
 
 {% endblock content %}
 

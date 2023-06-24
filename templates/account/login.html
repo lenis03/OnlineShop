@@ -1,16 +1,59 @@
 {% extends '_base.html' %}
-{% load crispy_forms_filters%}
+{% load crispy_forms_filters %}
+{% load i18n %}
+{% load crispy_forms_filters %}
 {% block page_title %}
     Log In
 {% endblock page_title %}
 
 {% block content %}
+    <!-- Main Content Wrapper Start -->
+    <div class="main-content-wrapper">
+    <div class="page-content-inner pt--75 pb--80">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-6 mb-sm--50">
+        <div class="login-box">
+            <h3 class="heading__tertiary mb--30">ورود</h3>
+            <form method="post" class="form form--login">
+                {% csrf_token %}
+                {% if form.errors %}
+                    <div class='alert alert-danger'>
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+                {#                                    {{ form|crispy }}#}
+                <div class="form__group mb--20">
+                    <label class="form__label form__label--2" for="username_email">ایمیل شما <span
+                            class="required">*</span></label>
+                    <input type="email" class="form__input form__input--2" id="id_login"
+                           name="login" autocomplete="email">
+                </div>
+                <div class="form__group mb--20">
+                    <label class="form__label form__label--2" for="login_password">رمز عبور <span
+                            class="required">*</span></label>
+                    <input type="password" class="form__input form__input--2" id="id_password"
+                           name="password" autocomplete="current-password">
+                </div>
+                <p>
+                    <label for="id_remember">مرا به یادآور:</label>
+                    <input type="checkbox" name="remember" id="id_remember">
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form|crispy}}
-    <input type="submit" value="Log In">
-</form>
+                </p>
+                <a class="forgot-pass" href="{% url 'account_reset_password' %}">فراموشی رمز عبور؟</a>
+                <br>
 
+                <div class="d-flex align-items-center mt--20">
+                    <div class="form__group">
+                        <input type="submit" value="ورود" class="btn-submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+    <!-- Main Content Wrapper Start -->
 {% endblock content %}
 
