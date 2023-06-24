@@ -36,7 +36,7 @@
                             <div class="tab-content" id="product-tab-content">
                                 <div class="tab-pane fade show active" id="nav-all">
                                     <div class="row xxl-block-grid-6 grid-space-20">
-                                        {% for product in products %}
+                                        {% for product in page_obj.object_list %}
 
                                             <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
                                                 <div class="ShoppingYar-product">
@@ -117,11 +117,13 @@
             <a href="#" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
             <div class="searchform__body">
                 <p>در باکس زیر عبارت خود را وارد کنید</p>
-                <form class="searchform">
-                    <input type="text" name="popup-search" id="popup-search" class="searchform__input"
-                           placeholder="جستجو در بین محصولات...">
-                    <button type="submit" class="searchform__submit"><i
-                            class="flaticon flaticon-magnifying-glass-icon"></i></button>
+                <form class="searchform"  method="get">
+                    {{ form }}
+                    <input type="submit" value="search">
+{#                    <input type="text" name="search" value="" id="popup-search" class="searchform__input"#}
+{#                           placeholder="جستجو در بین محصولات...">#}
+{#                    <button type="submit"  class="searchform__submit"><i#}
+{#                            class="flaticon flaticon-magnifying-glass-icon"></i></button>#}
                 </form>
             </div>
         </div>
