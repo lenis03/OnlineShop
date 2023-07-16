@@ -5,6 +5,7 @@ from django.utils.translation import gettext as _
 
 from cart.cart import Cart
 
+
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_('User'))
     is_paid = models.BooleanField(_('Is Paid?'), default=False)
